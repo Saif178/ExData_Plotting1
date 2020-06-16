@@ -5,8 +5,7 @@ hpc$Time<-hms::as.hms(hpc$Time)
 hpc_subset<-subset(hpc,Date=='2007-02-01')
 hpc_subset_1<-subset(hpc,Date=='2007-02-02')
 hpc_subset<-rbind(hpc_subset,hpc_subset_1)
-png('plot1.png')
-with(hpc_subset,hist(Global_active_power,col='red',
-                     xlab='Global Active Power (kilowatts)',
-                     main='Global Active Power'))
+png('plot2.png')
+with(hpc_subset,plot(strptime(Time,'%H:%M:%S'),Global_active_power,
+                     type='l',ylab='Global Active Power (kilowatts)',xlab=''))
 dev.off()
